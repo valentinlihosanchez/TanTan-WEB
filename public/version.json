@@ -1,0 +1,17 @@
+{
+  "latestVersion": "1.0.0",
+  "codename": "Oficial para Windows",
+  "releaseDate": "2026-09-08",
+  "downloadUrl": "https://tantanpos.com/downloads/TanTan-SistemPOS-Setup-1.0.0.exe",
+  "portableUrl": "https://tantanpos.com/downloads/TanTan-SistemPOS-v1.0.0-Portable.zip",
+  "sha256": "9f8a37d6e28944288a2505d9c1dadc9e37894a8fbc64920401848523091abff8",
+  "minSupportedVersion": "1.0.0",
+  "mandatory": false,
+  "changelog": [
+    "Lanzamiento oficial de TanTan SistemPOS para Windows 10 y 11.",
+    "Interfaz Liquid Glass WWDC25 de alto rendimiento.",
+    "Inventario inteligente PEPS (Primeras Entradas, Primeras Salidas) con costeo por lote.",
+    "Módulo de Gastos y Retiros blindados con PIN de cajero y comprobante de firma impreso.",
+    "Soporte para impresoras térmicas de 58mm y 80mm con avance digital de papel y cumplimiento PROFECO."
+  ]
+}
