@@ -1,17 +1,17 @@
 {
-  "latestVersion": "1.0.1",
-  "codename": "Almacén Agrupado PEPS",
+  "latestVersion": "1.0.0",
+  "codename": "Oficial para Windows",
   "releaseDate": "2026-09-10",
-  "downloadUrl": "https://github.com/valentinlihosanchez/TanTan-WEB/releases/download/v1.0.1/TanTan.SistemPOS.Setup.1.0.1.exe",
-  "portableUrl": "https://github.com/valentinlihosanchez/TanTan-WEB/releases/download/v1.0.1/TanTan.SistemPOS.1.0.1.exe",
+  "downloadUrl": "https://github.com/valentinlihosanchez/TanTan-WEB/releases/download/v1.0.0/TanTan.SistemPOS.Setup.1.0.0.exe",
+  "portableUrl": "https://github.com/valentinlihosanchez/TanTan-WEB/releases/download/v1.0.0/TanTan.SistemPOS.1.0.0.exe",
   "sha256": "",
   "minSupportedVersion": "1.0.0",
-  "mandatory": true,
+  "mandatory": false,
   "changelog": [
-    "Nuevo Almacén Consolidado: Productos agrupados con suma total de existencia.",
-    "Desglose interactivo PEPS: Haz clic para ver las capas de compra por lote en orden de salida FIFO.",
-    "Buscador dinámico por nombre de producto, número de lote o distribuidor.",
-    "Filtros avanzados por categoría, existencia con stock y ordenamiento de almacén.",
-    "Soporte para actualizaciones silenciosas automáticas y obligatorias de sistema."
+    "Lanzamiento oficial de TanTan SistemPOS para Windows 10 y 11.",
+    "Interfaz Liquid Glass WWDC25 de alto rendimiento.",
+    "Inventario inteligente PEPS (Primeras Entradas, Primeras Salidas) con costeo por lote.",
+    "Módulo de Gastos y Retiros blindados con PIN de cajero y comprobante de firma impreso.",
+    "Soporte para impresoras térmicas de 58mm y 80mm con avance digital de papel y cumplimiento PROFECO."
   ]
 }
