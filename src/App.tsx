@@ -7,12 +7,10 @@ import { VersionSelector } from './components/VersionSelector';
 import { FeaturesShowcase } from './components/FeaturesShowcase';
 import { HardwareCompatibility } from './components/HardwareCompatibility';
 import { InstallationGuide } from './components/InstallationGuide';
-import { DownloadModal } from './components/DownloadModal';
 import { ChangelogModal } from './components/ChangelogModal';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
-  const [downloadModalVersion, setDownloadModalVersion] = useState<VersionInfo | null>(null);
   const [changelogModalVersion, setChangelogModalVersion] = useState<VersionInfo | null>(null);
 
   const latestVersion = VERSIONS_DATA.find((v) => v.isLatest) || VERSIONS_DATA[0];
@@ -24,12 +22,23 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleDirectDownload = (v: VersionInfo) => {
+    const isPortable = v.codename.includes('Portable');
+    const url = isPortable && v.portableUrl ? v.portableUrl : v.downloadUrl;
+    
+    const a = document.createElement('a');
+    a.href = url;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   return (
     <div className="min-h-screen flex flex-col relative text-slate-900 selection:bg-sky-500 selection:text-white">
       {/* Barra de Navegación */}
       <Navbar
         latestVersion={latestVersion}
-        onOpenDownloadModal={(v) => setDownloadModalVersion(v)}
+        onOpenDownloadModal={handleDirectDownload}
       />
 
       {/* Main Content */}
@@ -37,14 +46,14 @@ export const App: React.FC = () => {
         {/* Hero Section con Vista Previa Interactiva */}
         <Hero
           latestVersion={latestVersion}
-          onOpenDownloadModal={(v) => setDownloadModalVersion(v)}
+          onOpenDownloadModal={handleDirectDownload}
           onScrollToVersions={handleScrollToVersions}
         />
 
         {/* Centro de Descargas y Selector de Versiones */}
         <VersionSelector
           versions={VERSIONS_DATA}
-          onOpenDownloadModal={(v) => setDownloadModalVersion(v)}
+          onOpenDownloadModal={handleDirectDownload}
           onOpenChangelogModal={(v) => setChangelogModalVersion(v)}
         />
 
@@ -61,13 +70,7 @@ export const App: React.FC = () => {
       {/* Pie de Página */}
       <Footer
         latestVersion={latestVersion}
-        onOpenDownloadModal={(v) => setDownloadModalVersion(v)}
-      />
-
-      {/* Modal de Descarga & Celebración con Confeti */}
-      <DownloadModal
-        version={downloadModalVersion}
-        onClose={() => setDownloadModalVersion(null)}
+        onOpenDownloadModal={handleDirectDownload}
       />
 
       {/* Modal de Registro de Cambios / Changelog */}
@@ -76,7 +79,7 @@ export const App: React.FC = () => {
         onClose={() => setChangelogModalVersion(null)}
         onDownload={(v) => {
           setChangelogModalVersion(null);
-          setDownloadModalVersion(v);
+          handleDirectDownload(v);
         }}
       />
     </div>
